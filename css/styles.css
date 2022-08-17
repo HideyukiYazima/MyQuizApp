@@ -16,3 +16,41 @@ body {
   margin-bottom: 16px;
   font-weight: bold;
 }
+
+#choices {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 16px; /* 下との間隔を空ける */
+}
+
+/* 細かいスタイルを設定する */
+#choices > li {
+  border: 1px solid #ccc;
+  border-radius: 4px; /* 角を丸くする */
+  padding: 10px; /* 余白を付ける */
+  margin-bottom: 10px; /* 選択肢との間を空ける */
+  cursor: pointer; /* 選択肢にマウスホバーしたときにカーソルを手に変化 */
+}
+
+/* マウスホバーした際の変化を設定 */
+#choices > li:hover {
+  background: #f8f8f8; /* 背景を薄いグレーにする */
+}
+
+/* nextボタンの設定 */
+#btn {
+  background: #3498db;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center; /* テキストを中央揃え */
+  color: #fff; /* 文字を白にする */
+  box-shadow: 0 4px 0 #2880b9; /* 下方向に4pxの陰影を加えるので色は濃い青に */
+}
+
+/* nextボタンが押せない時の設定 */
+#btn.disabled {
+  background: #ccc;
+  box-shadow: 0 4px 0 #bbb;
+  opacity: 0.7; /* 表示を薄くして押せない感じを出す */
+}
