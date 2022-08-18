@@ -37,6 +37,32 @@ body {
   background: #f8f8f8; /* 背景を薄いグレーにする */
 }
 
+/* 正解(correct)した場合にli選択肢のスタイルを変化させる設定 */
+#choices > li.correct {
+  background: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+  font-weight: bold;
+}
+
+/* 正解が分かりやすくなるようにテキストを設定 */
+#choices > li.correct::after {
+  content: ' ... correct!';
+}
+
+/* 不正解(wrong)した場合にli選択肢のスタイルを変化させる設定 */
+#choices > li.wrong {
+  background: #f8d8da;
+  border-color: #f5c6cb;
+  color: #721c24;
+  font-weight: bold;
+}
+
+/* 不正解が分かりやすくなるようにテキストを設定 */
+#choices > li.wrong::after {
+  content: ' ... wrong!';
+}
+
 /* nextボタンの設定 */
 #btn {
   background: #3498db;
