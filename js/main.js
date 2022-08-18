@@ -23,7 +23,7 @@
   }
 
   function checkAnswer(li) { // 答えが正解か識別する処理
-    
+
     // if (isAnswered === true) { // 以下の通り===trueは省略してもOK 
     if (isAnswered) { // もしisAnsweredがtrueなら以降の正誤処理はしない設定
       return;
@@ -35,12 +35,19 @@
     } else {
       li.classList.add('wrong');
     }
+
+    btn.classList.remove('disabled'); // 回答するとnextが選択できるようになる処理
   }
   
   function setQuiz() {
     isAnswered = false;
+
     question.textContent = quizSet[currentNum].q;
   
+    while(choices.firstChild) {
+      choices.removeChild(choices.firstChild);
+    } // このように書くとchoices.firstChildの値がnullになるまでループするので結果的にchoicesの子要素が全て消える。
+
     const shuffledChoices = shuffle([...quizSet[currentNum].c]);
     // console.log(quizSet[currentNum].c);
     shuffledChoices.forEach(choice => {
@@ -54,4 +61,10 @@
   }
 
   setQuiz();
+
+  // nextクリック後に次の問題が表示されるようにする処理
+  btn.addEventListener('click', () => {
+    currentNum++;
+    setQuiz();
+  });
 }
