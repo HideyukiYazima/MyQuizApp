@@ -10,6 +10,7 @@ body {
   background: #fff;
   border-radius: 4px;
   padding: 16px;
+  position: relative; /* 絶対配置になる */
 }
 
 #question {
@@ -63,8 +64,8 @@ body {
   content: ' ... wrong!';
 }
 
-/* nextボタンの設定 */
-#btn {
+/* nextボタンとresultのReplayボタンの設定 */
+#btn, #result > a {
   background: #3498db;
   padding: 8px;
   border-radius: 4px;
@@ -79,4 +80,32 @@ body {
   background: #ccc;
   box-shadow: 0 4px 0 #bbb;
   opacity: 0.7; /* 表示を薄くして押せない感じを出す */
+}
+
+#result { /* リザルトの表示は小さなモーダルウィンドウに設定 */
+  position: absolute; 
+  width: 300px;
+  background: #fff;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto; /* 中央揃え */
+  border-radius: 4px; /* 角を丸くする */
+  text-align: center;
+  transition: 0.4s; /* 元の位置にもどるときにアニメーションっぽくできる */
+}
+
+#result.hidden {
+  transform: translateY(-500px);
+}
+
+#result > p { /* リザルト直下のpに対しての設定 */
+  font-size: 24px;
+}
+
+#result > a { /* リザルト直下のaに対しての設定 */
+  display: block; /* 親要素の幅いっぱいに広がるように */
+  text-decoration: none; /* 下線を消すことができる */
 }
